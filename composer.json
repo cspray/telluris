@@ -1,0 +1,11 @@
+{
+  "require-dev": {
+    "phpunit/phpunit": "4.5.*",
+    "adlawson/vfs": "dev-master"
+  },
+  "autoload": {
+    "psr-0": {
+      "Telluris\\": ["src/", "test/"]
+    }
+  }
+}
