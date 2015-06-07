@@ -14,14 +14,16 @@ use Telluris\Exception\ConfigNotFoundException;
 class SingleFileStorage implements Storage {
 
     private $configFilePath;
+    private $secretsFilePath;
 
-    public function __construct($configFilePath) {
+    public function __construct($configFilePath, $secretsFilePath = null) {
         $configFilePath = (string) $configFilePath;
         if (!file_exists($configFilePath)) {
             $msg = 'Could not find a file located at "%s"';
             throw new ConfigNotFoundException(sprintf($msg, $configFilePath));
         }
         $this->configFilePath = (string) $configFilePath;
+        $this->secretsFilePath = (string) $secretsFilePath;
     }
 
     /**
@@ -34,12 +36,22 @@ class SingleFileStorage implements Storage {
             return false;
         }
 
-        return new Config($rawConfig[$env]);
+        return new Config($rawConfig[$env], $this->fetchSecretConfig());
     }
 
     private function fetchConfig() {
         $contents = file_get_contents($this->configFilePath);
         $config = json_decode($contents, true);
+
+        return $config;
+    }
+
+    private function fetchSecretConfig() {
+        $config = [];
+        if ($this->secretsFilePath) {
+            $contents = file_get_contents($this->secretsFilePath);
+            $config = json_decode($contents, true);
+        }
 
         return $config;
     }

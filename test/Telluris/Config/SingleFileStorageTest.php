@@ -68,4 +68,32 @@ class SingleFileStorageTest extends UnitTestCase {
         new SingleFileStorage('vfs:///config/not_present.json');
     }
 
+    public function testSettingSecretsFilePathPassesToConfig() {
+        /** @var VirtualFileSystem $fs */
+        $fs = $this->fs;
+        $configJson = json_encode([
+            'dev' => [
+                'foo' => 'secret(bar.baz)'
+            ]
+        ]);
+        $secretJson = json_encode([
+            'bar' => [
+                'baz' => 'little bunny foo foo'
+            ]
+        ]);
+
+        $configDir = new VirtualDir([
+            'env_config.json' => new VirtualFile($configJson),
+            'env_secrets.json' => new VirtualFile($secretJson)
+        ]);
+        $fs->get('/')->add('config', $configDir);
+
+        $configPath = 'vfs:///config/env_config.json';
+        $secretPath = 'vfs:///config/env_secrets.json';
+        $storage = new SingleFileStorage($configPath, $secretPath);
+        $config = $storage->getConfigForEnv('dev');
+
+        $this->assertSame('little bunny foo foo', $config->get('foo'));
+    }
+
 }
