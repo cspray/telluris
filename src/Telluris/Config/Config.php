@@ -9,12 +9,6 @@
 
 namespace Telluris\Config;
 
-use ArrayAccess;
-use ArrayIterator;
-use Countable;
-use Telluris\Exception\ImmutableConfigException;
-use IteratorAggregate;
-
 class Config {
 
     private $data;
