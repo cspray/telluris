@@ -1,6 +1,7 @@
 {
   "name": "cspray/telluris",
   "description": "Helps manage your environment specific configuration and code.",
+  "license": "MIT",
   "require": {
     "php": "5.6.*"
   },
