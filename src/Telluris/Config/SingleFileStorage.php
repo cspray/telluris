@@ -18,12 +18,17 @@ class SingleFileStorage implements Storage {
 
     public function __construct($configFilePath, $secretsFilePath = null) {
         $configFilePath = (string) $configFilePath;
+        $this->validateConfigFileExists($configFilePath);
+
+        $this->configFilePath = (string) $configFilePath;
+        $this->secretsFilePath = (string) $secretsFilePath;
+    }
+
+    private function validateConfigFileExists($configFilePath) {
         if (!file_exists($configFilePath)) {
             $msg = 'Could not find a file located at "%s"';
             throw new ConfigNotFoundException(sprintf($msg, $configFilePath));
         }
-        $this->configFilePath = (string) $configFilePath;
-        $this->secretsFilePath = (string) $secretsFilePath;
     }
 
     /**
@@ -41,9 +46,7 @@ class SingleFileStorage implements Storage {
 
     private function fetchConfig() {
         $contents = file_get_contents($this->configFilePath);
-        $config = json_decode($contents, true);
-
-        return $config;
+        return json_decode($contents, true);
     }
 
     private function fetchSecretConfig() {
