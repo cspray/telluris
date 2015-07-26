@@ -18,12 +18,16 @@ class MultipleFileStorage implements Storage {
 
     public function __construct($configDir, $secretsFileName = 'secrets') {
         $configDir = (string) $configDir;
-        if (!is_dir($configDir)) {
-            $msg = "Could not find a directory located at \"{$configDir}\"";
-            throw new ConfigNotFoundException($msg);
-        }
+        $this->validateConfigDirExists($configDir);
         $this->configDir = $configDir;
         $this->secretsFileName = (string) $secretsFileName;
+    }
+
+    private function validateConfigDirExists($dir) {
+        if (!is_dir($dir)) {
+            $msg = "Could not find a directory located at \"{$dir}\"";
+            throw new ConfigNotFoundException($msg);
+        }
     }
 
     /**
