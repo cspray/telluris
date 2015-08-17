@@ -1,8 +1,6 @@
 # Telluris
 
-A library to help manage your PHP app's environment. 
-
-> This library is still under development and is not ready for production use.
+A library to help manage your PHP app's environment.
 
 ## Installation
 
