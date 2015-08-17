@@ -12,11 +12,6 @@ It is recommended that you install Telluris via Composer.
 composer require cspray/telluris:dev-master
 ```
 
-## Features
-
-
-
-
 ## User Guide
 
 Let's take a look at how you can use Telluris to manage environment configurations and how you can use more advanced features.
