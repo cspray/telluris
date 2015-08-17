@@ -7,7 +7,7 @@
  * @since   1.0
  */
 
-namespace Telluris;
+namespace Cspray\Telluris;
 
 
 interface Initializer {

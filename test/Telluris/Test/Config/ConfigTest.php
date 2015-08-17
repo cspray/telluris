@@ -6,8 +6,9 @@
  * Time: 12:02
  */
 
-namespace Telluris\Config;
+namespace Cspray\Telluris\Test\Config;
 
+use Cspray\Telluris\Config\Config;
 use PHPUnit_Framework_TestCase as UnitTestCase;
 
 class ConfigTest extends UnitTestCase {

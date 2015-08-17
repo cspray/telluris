@@ -7,6 +7,6 @@
  * @since   1.0
  */
 
-namespace Telluris\Exception;
+namespace Cspray\Telluris\Exception;
 
 class ConfigNotFoundException extends Exception {}

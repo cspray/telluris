@@ -7,7 +7,7 @@
  * @since   1.0
  */
 
-namespace Telluris\Config;
+namespace Cspray\Telluris\Config;
 
 class Config {
 

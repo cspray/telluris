@@ -7,9 +7,11 @@
  * @since   1.0
  */
 
-namespace Telluris\Config;
+namespace Cspray\Telluris\Test\Config;
 
-use Telluris\Exception\ConfigNotFoundException;
+use Cspray\Telluris\Config\Config;
+use Cspray\Telluris\Config\SingleFileStorage;
+use Cspray\Telluris\Exception\ConfigNotFoundException;
 use PHPUnit_Framework_TestCase as UnitTestCase;
 use Vfs\FileSystem as VirtualFileSystem;
 use Vfs\Node\Directory as VirtualDir;
@@ -21,6 +23,7 @@ class SingleFileStorageTest extends UnitTestCase {
 
     public function setUp() {
         $this->fs = VirtualFileSystem::factory('vfs://');
+        $this->fs->mount();
     }
 
     public function tearDown() {

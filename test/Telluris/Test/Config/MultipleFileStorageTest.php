@@ -6,9 +6,11 @@ declare(strict_types = 1);
  * @license See LICENSE file in project root
  */
 
-namespace Telluris\Config;
+namespace Cspray\Telluris\Test\Config;
 
-use Telluris\Exception\ConfigNotFoundException;
+use Cspray\Telluris\Config\Config;
+use Cspray\Telluris\Config\MultipleFileStorage;
+use Cspray\Telluris\Exception\ConfigNotFoundException;
 use PHPUnit_Framework_TestCase as UnitTestCase;
 use Vfs\FileSystem as VirtualFileSystem;
 use Vfs\Node\Directory as VirtualDir;
@@ -20,6 +22,7 @@ class MultipleFileStorageTest extends UnitTestCase {
 
     public function setUp() {
         $this->fs = VirtualFileSystem::factory('vfs://');
+        $this->fs->mount();
     }
 
     public function tearDown() {

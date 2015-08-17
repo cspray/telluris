@@ -7,10 +7,13 @@
  * @since   1.0
  */
 
-namespace Telluris;
+namespace Cspray\Telluris\Test;
 
-use Telluris\Config\Config;
-use Telluris\Config\Storage;
+use Cspray\Telluris\Environment;
+use Cspray\Telluris\Initializer;
+use Cspray\Telluris\Config\Config;
+use Cspray\Telluris\Config\Storage;
+use Cspray\Telluris\Exception\ConfigNotFoundException;
 use PHPUnit_Framework_TestCase as UnitTestCase;
 
 class EnvironmentTest extends UnitTestCase {
@@ -139,7 +142,7 @@ class EnvironmentTest extends UnitTestCase {
         $environment = new Environment($mockStorage, 'not_present');
 
         $msg = 'Could not find a configuration for environment named "not_present".';
-        $this->setExpectedException(Exception\ConfigNotFoundException::class, $msg);
+        $this->setExpectedException(ConfigNotFoundException::class, $msg);
         $environment->getConfig();
     }
 

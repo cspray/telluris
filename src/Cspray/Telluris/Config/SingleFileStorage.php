@@ -7,9 +7,9 @@
  * @since   1.0
  */
 
-namespace Telluris\Config;
+namespace Cspray\Telluris\Config;
 
-use Telluris\Exception\ConfigNotFoundException;
+use Cspray\Telluris\Exception\ConfigNotFoundException;
 
 class SingleFileStorage implements Storage {
 

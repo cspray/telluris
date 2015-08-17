@@ -11,7 +11,12 @@
   },
   "autoload": {
     "psr-0": {
-      "Telluris\\": ["src/", "test/"]
+      "Cspray\\Telluris\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "Cspray\\Teluris\\Test\\": "test/"
     }
   }
 }

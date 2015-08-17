@@ -6,7 +6,7 @@ declare(strict_types = 1);
  * @license See LICENSE file in project root
  */
 
-namespace Telluris;
+namespace Cspray\Telluris;
 
 class CallbackInitializer implements Initializer {
 

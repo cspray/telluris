@@ -7,9 +7,9 @@
  * @since   1.0
  */
 
-namespace Telluris;
+namespace Cspray\Telluris;
 
-use Telluris\Exception\ConfigNotFoundException;
+use Cspray\Telluris\Exception\ConfigNotFoundException;
 
 class Environment {
 

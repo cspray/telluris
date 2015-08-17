@@ -6,10 +6,9 @@
  * Time: 11:26
  */
 
-namespace Telluris\Config;
+namespace Cspray\Telluris\Config;
 
-
-use Telluris\Exception\ConfigNotFoundException;
+use Cspray\Telluris\Exception\ConfigNotFoundException;
 
 class MultipleFileStorage implements Storage {
 
